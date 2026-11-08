@@ -68,3 +68,20 @@ baked at 32, which would silently disable optical sizing.
 - `v1.0.0` — static Inter Display, weights 300–700, from Inter 4.000.
 - `v1.1.0` — Inter Variable 4.000.
 - `v1.2.0` — Inter Variable 4.001 (Inter 4.1 release) plus the variable italic.
+
+## Inter Display, static (v2.0.0)
+
+`display/InterDisplay-{Regular,Medium,SemiBold,Bold}.woff2` — 29–30 KB each,
+Inter 4.001 from the Inter 4.1 release, latin subset.
+
+```
+@font-face { font-family:'Inter Display'; font-weight:400; src:url(…@v2.0.0/display/InterDisplay-Regular.woff2) }
+@font-face { font-family:'Inter Display'; font-weight:500; src:url(…@v2.0.0/display/InterDisplay-Medium.woff2) }
+@font-face { font-family:'Inter Display'; font-weight:600; src:url(…@v2.0.0/display/InterDisplay-SemiBold.woff2) }
+@font-face { font-family:'Inter Display'; font-weight:700; src:url(…@v2.0.0/display/InterDisplay-Bold.woff2) }
+```
+
+The Medium and SemiBold files declare `Inter Display Medium` and `Inter Display
+SemiBold` in their name tables (legacy style naming). The `font-family`
+descriptor in `@font-face` overrides that, so all four render as one family with
+four weights. Don't rely on the name table.
