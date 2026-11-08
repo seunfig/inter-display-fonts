@@ -11,6 +11,10 @@ Served from this repository through jsDelivr, which sets
 `opsz` 14–32, so it sharpens into the Display cut automatically at large sizes.
 One file replaces all static weights.
 
+`variable/InterVariable-Italic.woff2` — 113 KB, the matching true italic.
+Version 4.001, taken from the Inter 4.1 release that ships with the Align UI
+design system, latin subset.
+
 `subsets/latin/InterDisplay-{Light,Regular,Medium,SemiBold,Bold}.woff2` — 28–30 KB each.
 Static Display cut, kept for reference; not used by the site.
 Subset covers Latin-1 plus general punctuation (em dash, curly quotes, bullet),
@@ -58,3 +62,9 @@ The static Display builds and the variable font use different family names
 against the same name: two `@font-face` blocks claiming one family with
 overlapping `wght` ranges let the later one win, and the static file has `opsz`
 baked at 32, which would silently disable optical sizing.
+
+## Version history
+
+- `v1.0.0` — static Inter Display, weights 300–700, from Inter 4.000.
+- `v1.1.0` — Inter Variable 4.000.
+- `v1.2.0` — Inter Variable 4.001 (Inter 4.1 release) plus the variable italic.
