@@ -53,6 +53,8 @@ long as the licence travels with the files and the font is not sold on its own.
 with no extra declarations: 12px body text gets the text cut, 48px headings get
 the Display cut.
 
-The static Display builds embed `opsz` at 32; merging both families would make
-them fight for the `wght` range. In Chromium the later `@font-face` wins, so
-the static Inter Display rules silently override Inter Variable if both load.
+The static Display builds and the variable font use different family names
+(`Inter Display` vs `Inter Variable`), so they can coexist. Don't register both
+against the same name: two `@font-face` blocks claiming one family with
+overlapping `wght` ranges let the later one win, and the static file has `opsz`
+baked at 32, which would silently disable optical sizing.
