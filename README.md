@@ -7,7 +7,12 @@ Served from this repository through jsDelivr, which sets
 
 ## Files
 
+`variable/InterVariable.woff2` — 103 KB. The variable font: `wght` 100–900 and
+`opsz` 14–32, so it sharpens into the Display cut automatically at large sizes.
+One file replaces all static weights.
+
 `subsets/latin/InterDisplay-{Light,Regular,Medium,SemiBold,Bold}.woff2` — 28–30 KB each.
+Static Display cut, kept for reference; not used by the site.
 Subset covers Latin-1 plus general punctuation (em dash, curly quotes, bullet),
 the arrow U+2192, the euro sign and the trademark sign. Converted from the
 upstream TTFs with `fontTools`, hinting stripped.
@@ -31,3 +36,23 @@ Weights published: 300, 400, 500, 600, 700.
 Inter is licensed under the SIL Open Font License 1.1. See `LICENSE.txt`.
 The OFL permits redistribution and web embedding, including from a CDN, as
 long as the licence travels with the files and the font is not sold on its own.
+
+## Variable font
+
+```
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/gh/seunfig/inter-display-fonts@v1.1.0/variable/InterVariable.woff2) format('woff2');
+}
+```
+
+`font-optical-sizing: auto` is the CSS default, so `opsz` follows `font-size`
+with no extra declarations: 12px body text gets the text cut, 48px headings get
+the Display cut.
+
+The static Display builds embed `opsz` at 32; merging both families would make
+them fight for the `wght` range. In Chromium the later `@font-face` wins, so
+the static Inter Display rules silently override Inter Variable if both load.
